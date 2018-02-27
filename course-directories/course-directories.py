@@ -11,6 +11,7 @@ def create_dirs(sections, base):
         else:
             suffix = str(i)
         os.makedirs(base+"/section-"+suffix)
+        os.mknod(base+"/section-"+suffix+"/.gitkeep")
 
 parser = argparse.ArgumentParser()
 parser.add_argument("sections", help="The number of section directories to create", type=int)
