@@ -19,7 +19,7 @@ import zlib
 #Including the e-mail credentials
 
 folder_list = []
-username = "@onsip.com"
+username = ""
 password = ""
 user = username.split('@')[0]
 path = "./"+user+"/"
