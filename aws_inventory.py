@@ -93,8 +93,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
     aws_user_name = args.user
 
-    # Generates a list of kasisto accounts from the parent organization.
-    kasisto_accounts = account_list()
+    # Generates a list of accounts from the parent organization.
+    org_accounts = account_list()
 
     # Generates a list of all available AWS regions.
     regions = [region['RegionName'] for region in boto3.client('ec2').describe_regions()['Regions']]
@@ -103,7 +103,7 @@ if __name__ == '__main__':
     print(','.join(["AccountID", "CustomerName", "Resource", "Type", "Region", "Status"]))
 
     # Loops through the list of accounts to gather a list of resources.
-    for account in kasisto_accounts:
+    for account in org_accounts:
         if 'system-' in account['Name']:
             account_name = account['Name'][7:]
         else:
