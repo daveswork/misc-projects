@@ -14,4 +14,4 @@ Mostly useful when I take a Udemy course and want to keep work for each section 
 
 ## Python 3.6+
 
-- aws_inventory takes an AWS username, prompts for credentials and gives a list of accounts, or something like that.
+- aws_inventory.py takes an AWS username, prompts for credentials and gives a list of accounts, or something like that.
