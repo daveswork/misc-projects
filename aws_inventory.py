@@ -43,13 +43,13 @@ def describe_rds_instance(creds, region_list):
     Provides a list of rds instance description by region.
     Returns a list of dictionaries which contain the resource descriptions.
     '''
-    ec2_list = []
+    rds_list = []
     for region in region_list:
         client = boto3.client('rds', aws_access_key_id=creds['AccessKeyId'], aws_secret_access_key=creds['SecretAccessKey'],
                               aws_session_token=creds['SessionToken'], region_name=region)
         response = client.describe_db_instances(
         )
-        ec2_list.append(response)
+        rds_list.append(response)
     return ec2_list
 
 
@@ -59,13 +59,13 @@ def describe_ec2_instance(creds, region_list):
     Provides a list of ec2 instance description by region.
     Returns a list of dictionaries which contains the resource descriptions.
     '''
-    db_list = []
+    ec2_list = []
     for region in region_list:
         client = boto3.client('ec2', aws_access_key_id=creds['AccessKeyId'], aws_secret_access_key=creds['SecretAccessKey'],
                               aws_session_token=creds['SessionToken'], region_name=region)
         response = client.describe_instances()
         db_list.append(response)
-    return db_list
+    return ec2_list
 
 
 def sts_creds(account_number, aws_user):
