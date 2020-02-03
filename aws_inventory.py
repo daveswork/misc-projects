@@ -24,7 +24,7 @@ There is a pause of 15 seconds to allow a new MFA to be generated added after al
 
 def account_list():
     '''
-    Generates a list of all the Kasisto accounts, including the parent account.
+    Generates a list of all the organization's accounts, including the parent account.
     '''
     client_accounts = []
     client = boto3.client('organizations')
@@ -88,7 +88,7 @@ def sts_creds(account_number, aws_user):
 if __name__ == '__main__':
     # Retrieves an AWS user from the supplied arguments
     parser = argparse.ArgumentParser(description='Generate a csv separated list of AWS RDS and EC2 resources for all of\
-                                                 Kasisto.')
+                                                 the accounts.')
     parser.add_argument('-u', '--user', type=str, help='AWS username.', nargs='?', required=True)
     args = parser.parse_args()
     aws_user_name = args.user
